@@ -38,3 +38,32 @@ foo.instance_eval do
 end
 
 foo.this_is_instance
+
+############
+
+# Using Yield - Yield always evaluates the block, Yield is a magical keyword and not a method
+
+foo.instance_eval do
+  def this_is_yield
+    yield
+  end
+end
+
+foo.this_is_yield {puts "hello this is yield #{2 + 3}"}
+
+###########
+
+foo.instance_eval do
+  def this_is_yield_with_args(a, b)
+    puts "This is yield with arguments #{yield(a, b)}"
+  end
+end
+
+foo.this_is_yield_with_args(2, 3) {|a, b| a + b}
+
+
+
+
+
+
+
