@@ -61,7 +61,32 @@ end
 
 foo.this_is_yield_with_args(2, 3) {|a, b| a + b}
 
+##########
 
+# Add a new method to sting to split into words since string do not have that capabilty.
+
+class String
+  def words
+    split(' ')
+  end
+end
+
+"Programmer Best Friend".words
+#['Programmer', 'Best', 'Friend']
+
+########
+
+# Method Missing. It accepts method_name, list of args, block as arguments
+
+class Hello
+  def method_missing(method_name, *args, &block)
+    puts "There is no such method - #{method_name}"
+  end
+end
+
+Hello.new.ruby
+
+#########
 
 
 
