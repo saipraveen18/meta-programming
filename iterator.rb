@@ -74,6 +74,14 @@ end
 "Programmer Best Friend".words
 #['Programmer', 'Best', 'Friend']
 
+class Integer
+  def factorial
+    (1..self).inject(&:*) || 1
+  end
+end
+
+5.factorial #Gives factorial. remember self here.
+
 ########
 
 # Method Missing. It accepts method_name, list of args, block as arguments
@@ -88,7 +96,26 @@ Hello.new.ruby
 
 #########
 
+# Singleton class - Method belongs to specific object in a class
 
+class Foo
+  def method1
+    puts "method1"
+  end
+end
 
+foo = Foo.new
+
+def foo.method2
+  puts "This is Singleton Method and can only be accessible with foo object"
+end
+
+puts foo.method2
+
+foobar = Foo.new
+foobar.method1 # Gives o/p
+foobar.method2 # Throws error
+
+########
 
 
